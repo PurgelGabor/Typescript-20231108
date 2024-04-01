@@ -1,7 +1,19 @@
 /*
-    - Készíts alprogramot ami...
-        - Eldönti, hogy a paraméterül kapott szám tömbben van-e negatív szám
- */
+TYPESCRIPT
+
+- Keszits alprogramot, ami...
+    - Eldonti, hogy a parameterul kapott szam tombben van-e negativ szam
+    - Egy parametrul kapott sugarbol megallapitja a kor keruletet es teruletet
+        - Tuple-t alkalmazz
+        - Kerulet: 2 * sugar * PI
+        - Terulet: sugar * sugar * PI
+    
+- Keszits interface-t Auto neven
+    - Gyarto (szoveg)
+    - Tipus (szoveg)
+    - Hengerurtartalom (szam)
+    - BenzinesE (logikai)
+*/
 function NegativE(szamok) {
     var eredmeny = false;
     for (var i = 0; i < szamok.length; i++) {
@@ -21,3 +33,47 @@ function korKerTer(r) {
 console.log(korKerTer(5));
 console.log(korKerTer(9));
 console.log(korKerTer(4.6));
+/*
+- Keszits publikus GitHub repositorit a sajat felhasznaloi fiokodban
+- Indits Git BASH-t, es a jelenlegi TS projektedben inicializalj git-et
+- A lokalis repo-t kosd ossze az online (github-os) repoddal
+- Toltsd fel a jelenlegi allapotot a github-ra
+*/
+/*
+TS!!
+- Keszits alprogramot, ami kivalasztja egy auto tombbol a legkisebb hengerurtartalmu autot
+- Keszits alprogramot, ami megadja a parameterul kapott auto tombbol a benzinesek darabszamat
+- A valtoztatasokat toltsd fel a github repodba
+*/
+function minAuto(autok) {
+    var minCCM = autok[0];
+    for (var i = 0; i < autok.length; i++) {
+        if (minCCM.ccm > autok[i].ccm) {
+            minCCM = autok[i];
+        }
+    }
+    return minCCM;
+}
+function BenzinesDb(autok) {
+    var db = 0;
+    for (var i = 0; i < autok.length; i++) {
+        if (autok[i].benzinesE == true) {
+            db++;
+        }
+    }
+    return db;
+}
+var auto1 = { gyarto: "Opel", tipus: "Corsa", ccm: 1200, benzinesE: true };
+var auto2 = { gyarto: "Ford", tipus: "Focus", ccm: 1600, benzinesE: false };
+var auto3 = { gyarto: "Audi", tipus: "A6", ccm: 3000, benzinesE: false };
+var auto4 = { gyarto: "Mercedes", tipus: "S500", ccm: 4200, benzinesE: true };
+var auto5 = { gyarto: "Opel", tipus: "Astra", ccm: 1800, benzinesE: true };
+var autokTeszt = [
+    auto1 = { gyarto: "Opel", tipus: "Corsa", ccm: 1200, benzinesE: true },
+    auto2 = { gyarto: "Ford", tipus: "Focus", ccm: 1600, benzinesE: false },
+    auto3 = { gyarto: "Audi", tipus: "A6", ccm: 3000, benzinesE: false },
+    auto4 = { gyarto: "Mercedes", tipus: "S500", ccm: 4200, benzinesE: true },
+    auto5 = { gyarto: "Opel", tipus: "Astra", ccm: 1800, benzinesE: true }
+];
+console.log(minAuto(autokTeszt));
+console.log(BenzinesDb(autokTeszt));

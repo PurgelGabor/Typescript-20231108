@@ -64,3 +64,40 @@ TS!!
 - Keszits alprogramot, ami megadja a parameterul kapott auto tombbol a benzinesek darabszamat
 - A valtoztatasokat toltsd fel a github repodba
 */
+
+function minAuto(autok:Auto[]):Auto{
+    var minCCM:Auto = autok[0];
+    for(var i:number = 0; i < autok.length; i++){
+        if(minCCM.ccm > autok[i].ccm){
+            minCCM = autok[i];
+        }
+    }
+    return minCCM;
+}
+
+function BenzinesDb(autok:Auto[]):number{
+    var db:number = 0;
+    for(var i:number = 0; i < autok.length; i++){
+        if(autok[i].benzinesE == true){
+            db++;
+        }   
+     }
+     return db;
+}
+
+var auto1:Auto = {gyarto: "Opel", tipus: "Corsa", ccm: 1200, benzinesE: true};
+var auto2:Auto = {gyarto: "Ford", tipus: "Focus", ccm: 1600, benzinesE: false};
+var auto3:Auto = {gyarto: "Audi", tipus: "A6", ccm: 3000, benzinesE: false};
+var auto4:Auto = {gyarto: "Mercedes", tipus: "S500", ccm: 4200, benzinesE: true};
+var auto5:Auto = {gyarto: "Opel", tipus: "Astra", ccm: 1800, benzinesE: true};
+
+var autokTeszt:Auto[] = [
+auto1 = {gyarto: "Opel", tipus: "Corsa", ccm: 1200, benzinesE: true},
+auto2 = {gyarto: "Ford", tipus: "Focus", ccm: 1600, benzinesE: false},
+auto3 = {gyarto: "Audi", tipus: "A6", ccm: 3000, benzinesE: false},
+auto4 = {gyarto: "Mercedes", tipus: "S500", ccm: 4200, benzinesE: true},
+auto5 = {gyarto: "Opel", tipus: "Astra", ccm: 1800, benzinesE: true}
+];
+
+console.log(minAuto(autokTeszt));
+console.log(BenzinesDb(autokTeszt));
